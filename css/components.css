@@ -210,10 +210,8 @@
   border: 1px solid var(--line);
   border-radius: var(--r-lg);
   overflow: hidden;
-  box-shadow: var(--sh-card);
-  transition: transform 0.16s ease, box-shadow 0.16s ease;
+  transition: transform 0.16s ease;
 }
-.card:hover { box-shadow: var(--sh-lift); }
 @media (hover: hover) {
   .card:hover { transform: translateY(-3px); }
   .card:hover .card-media img { transform: scale(1.04); }
