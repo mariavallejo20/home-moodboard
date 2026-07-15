@@ -18,5 +18,4 @@
   <path d="M95 205 C70 150 80 120 95 100 C110 120 120 150 95 205 Z" fill="#7c9a63"/>
   <circle cx="300" cy="150" r="46" fill="#8aa76e" opacity=".9"/>
   <rect x="288" y="185" width="24" height="70" fill="#9a7b52"/>
-  <text x="24" y="322" font-family="monospace" font-size="14" fill="#5c6b4c">TE · composite + verde</text>
 </svg>
