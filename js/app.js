@@ -39,7 +39,7 @@ function applyHash() {
 function onHashChange() {
   applyHash();
   renderAll();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo(0, 0);
 }
 
 /* ── Vinculación de eventos ──────────────────────────────── */
