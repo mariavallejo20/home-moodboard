@@ -179,6 +179,7 @@
     letter-spacing: -0.02em;
     flex: 1;
     min-width: 0;
+    text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
