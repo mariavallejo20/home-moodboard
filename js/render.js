@@ -146,6 +146,6 @@ function emptyState() {
     <i data-lucide="image-plus" class="empty-ico"></i>
     <h3>Aún no hay ideas aquí</h3>
     <p>Añade la primera: una captura de ese reel o foto que te ha gustado, con una nota rápida.</p>
-    <button class="btn btn-primary" data-action="open-add"><i data-lucide="plus"></i> Añadir idea</button>
+    <button class="btn btn-primary only-desktop" data-action="open-add"><i data-lucide="plus"></i> Añadir idea</button>
   </div>`;
 }
