@@ -42,6 +42,7 @@ export function renderAll() {
 function renderSidebar() {
   $('#brand-title').textContent = state.meta.title || 'Nuestro piso';
   $('#brand-sub').textContent   = state.meta.subtitle || 'Ideas de decoración';
+  $('#topbar-title').textContent = state.meta.title || 'Nuestro piso';
 
   const total = ideasInRoom('all').length;
   let html = `
@@ -85,7 +86,7 @@ function renderHead() {
   $('#board-code').textContent  = code;
   $('#board-title').textContent = name;
   $('#board-count').textContent = `${count} ${count === 1 ? 'idea' : 'ideas'}`;
-  $('#topbar-title').textContent = name;
+  $('#nav-pill-label').textContent = name;
 }
 
 /* ── Galería (muestrario) ────────────────────────────────── */

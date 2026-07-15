@@ -17,6 +17,7 @@
 
   <!-- ══════════════════ BARRA LATERAL / DIRECTORIO ══════════════════ -->
   <aside class="sidebar" id="sidebar">
+    <div class="sidebar-handle"></div>
     <div class="brand">
       <div class="brand-kicker">Moodboard · piso nuevo</div>
       <h1 class="brand-title" id="brand-title">Nuestro piso</h1>
@@ -33,12 +34,9 @@
   <!-- ══════════════════ CONTENIDO PRINCIPAL ══════════════════ -->
   <main class="main">
 
-    <!-- Barra superior (solo móvil) -->
+    <!-- Barra superior de marca (solo móvil) -->
     <div class="topbar">
-      <button class="icon-btn" data-action="toggle-drawer" aria-label="Abrir estancias">
-        <i data-lucide="menu"></i>
-      </button>
-      <span class="topbar-title" id="topbar-title">Todas las ideas</span>
+      <span class="topbar-title" id="topbar-title">Nuestro piso</span>
     </div>
 
     <div class="board">
@@ -65,6 +63,13 @@
       <div class="gallery" id="gallery"></div>
     </div>
   </main>
+
+  <!-- Píldora flotante de navegación (solo móvil) -->
+  <button class="nav-pill" data-action="toggle-drawer" aria-label="Elegir estancia">
+    <i data-lucide="layout-grid" class="nav-pill-ico"></i>
+    <span class="nav-pill-label" id="nav-pill-label">Todas las ideas</span>
+    <i data-lucide="chevron-up" class="nav-pill-chevron"></i>
+  </button>
 </div>
 
 <!-- ══════════════════ MODAL · DETALLE DE IDEA ══════════════════ -->

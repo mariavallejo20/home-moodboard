@@ -109,14 +109,51 @@
 /* ── Utilidades de visibilidad ───────────────────────────── */
 .only-mobile { display: none; }
 
-/* ── Scrim del cajón (solo móvil) ────────────────────────── */
+/* ── Scrim del bottom sheet (solo móvil) ─────────────────── */
 .scrim {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(32,30,27,.42);
-  z-index: 40;
+  z-index: 55;
 }
+
+/* ── Asa del bottom sheet (solo móvil) ───────────────────── */
+.sidebar-handle {
+  display: none;
+  width: 40px;
+  height: 4px;
+  background: var(--line-strong);
+  border-radius: 2px;
+  margin: 12px auto 0.5rem;
+  flex-shrink: 0;
+}
+
+/* ── Píldora flotante de navegación (solo móvil) ─────────── */
+.nav-pill {
+  display: none;
+  position: fixed;
+  bottom: calc(1.1rem + var(--safe-bottom));
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 45;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100vw - 2rem);
+  padding: 11px 16px 11px 14px;
+  background: var(--pine);
+  color: var(--paper);
+  border: none;
+  border-radius: var(--r-full);
+  box-shadow: 0 8px 28px -6px rgba(51, 86, 75, .6);
+  font-size: 14px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.nav-pill:active   { transform: translateX(-50%) scale(0.97); }
+.nav-pill-ico      { width: 17px; height: 17px; flex-shrink: 0; color: #bcd6cc; }
+.nav-pill-label    { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.nav-pill-chevron  { width: 16px; height: 16px; flex-shrink: 0; opacity: .75; }
 
 /* ── Responsive: móvil / tablet ──────────────────────────── */
 @media (max-width: 880px) {
@@ -147,20 +184,35 @@
     text-overflow: ellipsis;
   }
 
+  /* La barra lateral pasa a ser una hoja inferior (bottom sheet) */
   .sidebar {
     position: fixed;
-    top: 0; left: 0;
-    z-index: 50;
-    width: min(84vw, 320px);
-    transform: translateX(-102%);
-    transition: transform 0.26s ease;
-    box-shadow: var(--sh-pop);
+    left: 0; right: 0; bottom: 0;
+    top: auto;
+    z-index: 60;
+    width: 100%;
+    height: auto;
+    max-height: 82vh;
+    border-right: none;
+    border-radius: var(--r-xl) var(--r-xl) 0 0;
+    padding: 0 1rem calc(1.25rem + var(--safe-bottom));
+    gap: 0.75rem;
+    transform: translateY(101%);
+    transition: transform 0.28s ease;
+    box-shadow: 0 -12px 40px -12px rgba(32, 30, 27, .4);
   }
 
-  .app.drawer-open .sidebar { transform: none; }
-  .app.drawer-open .scrim   { display: block; }
+  .app.drawer-open .sidebar  { transform: none; }
+  .app.drawer-open .scrim    { display: block; }
+  .app.drawer-open .nav-pill { opacity: 0; pointer-events: none; }
 
-  .board { padding: 1.1rem 1rem calc(4rem + var(--safe-bottom)); }
+  .sidebar .brand { display: none; }   /* el título va en la barra superior */
+  .sidebar-handle { display: block; }
+  .sidebar-foot   { margin-top: 0.5rem; }
+
+  .nav-pill { display: inline-flex; }
+
+  .board { padding: 1.1rem 1rem calc(5.5rem + var(--safe-bottom)); }
   .board-head { align-items: flex-start; }
 
   .only-desktop { display: none !important; }

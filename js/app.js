@@ -84,7 +84,10 @@ function onClick(e) {
 
     case 'open-detail':   openDetail(el.dataset.id); break;
     case 'open-add':      openAdd(); break;
-    case 'open-brief':    openBrief(el.dataset.scope); break;
+    case 'open-brief':
+      document.getElementById('app').classList.remove('drawer-open');
+      openBrief(el.dataset.scope);
+      break;
 
     case 'toggle-drawer': document.getElementById('app').classList.toggle('drawer-open'); break;
     case 'close-drawer':  document.getElementById('app').classList.remove('drawer-open'); break;
@@ -98,7 +101,10 @@ function onClick(e) {
       break;
 
     case 'export-json':
-    case 'dl-json':       downloadJson(); break;
+    case 'dl-json':
+      document.getElementById('app').classList.remove('drawer-open');
+      downloadJson();
+      break;
     case 'dl-image':      downloadPendingImage(); break;
 
     case 'add-another':   openAdd(); break;
