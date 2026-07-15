@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Referencia de salón">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2ece2"/>
+      <stop offset="1" stop-color="#e3d3c0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#g)"/>
+  <rect x="40" y="205" width="320" height="8" rx="4" fill="#c9b49a" opacity=".6"/>
+  <rect x="70" y="130" width="230" height="80" rx="16" fill="#d9c4a8"/>
+  <rect x="70" y="110" width="230" height="45" rx="14" fill="#e7d6bd"/>
+  <rect x="86" y="120" width="90" height="34" rx="10" fill="#cbb493"/>
+  <rect x="196" y="120" width="90" height="34" rx="10" fill="#cbb493"/>
+  <rect x="78" y="205" width="10" height="26" rx="3" fill="#8c6d4b"/>
+  <rect x="282" y="205" width="10" height="26" rx="3" fill="#8c6d4b"/>
+  <circle cx="322" cy="150" r="26" fill="#b9c3ad" opacity=".8"/>
+  <text x="24" y="278" font-family="monospace" font-size="13" fill="#6e5a42">SA · sofá modular</text>
+</svg>

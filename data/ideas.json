@@ -1,0 +1,115 @@
+{
+  "meta": {
+    "title": "Nuestro piso",
+    "subtitle": "Ideas de decoración"
+  },
+  "rooms": [
+    { "id": "cocina",     "name": "Cocina",              "code": "CO", "icon": "cooking-pot" },
+    { "id": "salon",      "name": "Salón",               "code": "SA", "icon": "sofa" },
+    { "id": "bano-comun", "name": "Baño común",          "code": "BC", "icon": "shower-head" },
+    { "id": "dorm-2",     "name": "Dormitorio 2",        "code": "D2", "icon": "bed-single" },
+    { "id": "despacho",   "name": "Despacho",            "code": "DP", "icon": "laptop" },
+    { "id": "dorm-1",     "name": "Dormitorio 1",        "code": "D1", "icon": "bed-double" },
+    { "id": "vestidor",   "name": "Vestidor",            "code": "VE", "icon": "shirt" },
+    { "id": "bano-suite", "name": "Baño del dormitorio", "code": "BS", "icon": "bath" },
+    { "id": "terraza",    "name": "Terraza",             "code": "TE", "icon": "leaf" },
+    { "id": "general",    "name": "Estilo general",      "code": "GN", "icon": "palette" }
+  ],
+  "ideas": [
+    {
+      "id": "idea-0001",
+      "room": "salon",
+      "title": "Sofá modular beige con patas de madera",
+      "notes": "Me gusta el tono cálido y las patas vistas de roble. Tela lavable. Comprobar que el módulo en L entra en nuestro salón.",
+      "kind": "image",
+      "source": "instagram",
+      "url": "https://www.instagram.com/",
+      "media": ["media/salon/sofa-modular.svg"],
+      "priceEst": "~1200€",
+      "shop": "Kave Home",
+      "productUrl": "https://www.kavehome.com/",
+      "video": "",
+      "added": "2026-07-10"
+    },
+    {
+      "id": "idea-0002",
+      "room": "cocina",
+      "title": "Isla central con encimera de piedra",
+      "notes": "Frente de madera clara + encimera de piedra clara. Isla con zona de desayuno para dos taburetes.",
+      "kind": "image",
+      "source": "tiktok",
+      "url": "https://www.tiktok.com/",
+      "media": ["media/cocina/isla-piedra.svg"],
+      "priceEst": "",
+      "shop": "",
+      "productUrl": "",
+      "video": "https://drive.google.com/",
+      "added": "2026-07-11"
+    },
+    {
+      "id": "idea-0003",
+      "room": "dorm-1",
+      "title": "Cabecero de microcemento continuo",
+      "notes": "Cabecero de microcemento hasta el techo, tono arena. Aporta calidez sin recargar. Iluminación indirecta detrás.",
+      "kind": "ref",
+      "source": "instagram",
+      "url": "https://www.instagram.com/",
+      "media": [],
+      "priceEst": "",
+      "shop": "",
+      "added": "2026-07-12"
+    },
+    {
+      "id": "idea-0004",
+      "room": "bano-suite",
+      "title": "Ducha de obra con nicho y microcemento",
+      "notes": "Ducha a ras de suelo, microcemento gris cálido, nicho empotrado para los botes. Mampara sin perfilería.",
+      "kind": "image",
+      "source": "pinterest",
+      "url": "https://www.pinterest.com/",
+      "media": ["media/bano-suite/ducha-nicho.svg"],
+      "priceEst": "",
+      "shop": "",
+      "added": "2026-07-12"
+    },
+    {
+      "id": "idea-0005",
+      "room": "general",
+      "title": "Paleta base: yeso + verde salvia + roble",
+      "notes": "Idea de paleta para todo el piso: paredes en tono yeso cálido, textiles en verde salvia y madera de roble. Detalles en negro mate.",
+      "kind": "ref",
+      "source": "web",
+      "url": "https://www.google.com/",
+      "media": [],
+      "priceEst": "",
+      "shop": "",
+      "added": "2026-07-13"
+    },
+    {
+      "id": "idea-0006",
+      "room": "terraza",
+      "title": "Suelo composite + plantas mediterráneas",
+      "notes": "Tarima de composite color madera, jardineras con olivo pequeño, lavanda y romero. Bajo mantenimiento.",
+      "kind": "image",
+      "source": "propia",
+      "url": "",
+      "media": ["media/terraza/composite-plantas.svg"],
+      "priceEst": "",
+      "shop": "",
+      "added": "2026-07-14"
+    },
+    {
+      "id": "idea-0007",
+      "room": "despacho",
+      "title": "Balda vista de roble + zona de trabajo",
+      "notes": "Estantería flotante de roble sobre el escritorio, con silla ergonómica en negro. Luz de trabajo cálida y regulable.",
+      "kind": "ref",
+      "source": "instagram",
+      "url": "https://www.instagram.com/",
+      "media": [],
+      "priceEst": "",
+      "shop": "",
+      "added": "2026-07-14"
+    }
+  ]
+}
