@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#33564b">
+  <title>Nuestro piso · Ideas</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="app" id="app">
+
+  <!-- ══════════════════ BARRA LATERAL / DIRECTORIO ══════════════════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-kicker">Moodboard · piso nuevo</div>
+      <h1 class="brand-title" id="brand-title">Nuestro piso</h1>
+      <p class="brand-sub" id="brand-sub">Ideas de decoración</p>
+    </div>
+    <nav class="room-nav" id="room-nav" aria-label="Estancias"></nav>
+    <div class="sidebar-foot">
+      <button class="foot-btn" data-action="open-brief"><i data-lucide="clipboard-list"></i> Brief</button>
+      <button class="foot-btn" data-action="export-json"><i data-lucide="download"></i> Exportar</button>
+    </div>
+  </aside>
+  <div class="scrim" data-action="close-drawer"></div>
+
+  <!-- ══════════════════ CONTENIDO PRINCIPAL ══════════════════ -->
+  <main class="main">
+
+    <!-- Barra superior (solo móvil) -->
+    <div class="topbar">
+      <button class="icon-btn" data-action="toggle-drawer" aria-label="Abrir estancias">
+        <i data-lucide="menu"></i>
+      </button>
+      <span class="topbar-title" id="topbar-title">Todas las ideas</span>
+      <button class="icon-btn" data-action="open-add" aria-label="Añadir idea">
+        <i data-lucide="plus"></i>
+      </button>
+    </div>
+
+    <div class="board">
+      <div class="board-head">
+        <div>
+          <div class="board-code" id="board-code">DIRECTORIO / ALL</div>
+          <h2 class="board-title" id="board-title">Todas las ideas</h2>
+          <div class="board-count" id="board-count">0 ideas</div>
+        </div>
+        <div class="board-actions">
+          <button class="btn btn-primary only-desktop" data-action="open-add"><i data-lucide="plus"></i> Añadir idea</button>
+        </div>
+      </div>
+
+      <!-- Filtros -->
+      <div class="filters">
+        <div class="search">
+          <i data-lucide="search"></i>
+          <input type="search" id="search" placeholder="Buscar por título o nota…" aria-label="Buscar ideas">
+        </div>
+      </div>
+
+      <!-- Galería -->
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </main>
+</div>
+
+<!-- ══════════════════ MODAL · DETALLE DE IDEA ══════════════════ -->
+<div class="overlay" id="detail-overlay" data-action="close-overlay">
+  <div class="sheet sheet-detail">
+    <button class="sheet-close" data-action="close-modal" aria-label="Cerrar">
+      <i data-lucide="x"></i>
+    </button>
+    <div id="detail-body"></div>
+  </div>
+</div>
+
+<!-- ══════════════════ MODAL · AÑADIR IDEA ══════════════════ -->
+<div class="overlay" id="add-overlay" data-action="close-overlay">
+  <div class="sheet sheet-pad">
+    <button class="sheet-close" data-action="close-modal" aria-label="Cerrar">
+      <i data-lucide="x"></i>
+    </button>
+    <div class="sheet-kicker">Nueva referencia</div>
+    <h2 class="sheet-title">Añadir idea</h2>
+
+    <form class="add-form" id="add-form">
+      <div class="field">
+        <label for="f-image">Imagen (captura del reel / foto)</label>
+        <label class="dropzone" for="f-image">
+          <input type="file" id="f-image" accept="image/*">
+          <div class="dropzone-label" id="f-drop-label">Toca para elegir una captura o foto</div>
+          <div class="dropzone-preview" id="f-preview"></div>
+        </label>
+        <div class="hint">Consejo: guarda la captura del fotograma que te gusta. El vídeo original queda enlazado abajo.</div>
+      </div>
+
+      <div class="field">
+        <label for="f-room">Estancia</label>
+        <select id="f-room"></select>
+      </div>
+
+      <div class="field">
+        <label for="f-title">Título</label>
+        <input type="text" id="f-title" placeholder="p. ej. Sofá modular beige" required>
+      </div>
+
+      <div class="field">
+        <label for="f-notes">Notas · qué te gusta</label>
+        <textarea id="f-notes" placeholder="El tono cálido, las patas de madera, tela lavable…"></textarea>
+      </div>
+
+      <div class="field">
+        <label for="f-source">Fuente</label>
+        <select id="f-source">
+          <option value="instagram">Instagram</option>
+          <option value="tiktok">TikTok</option>
+          <option value="pinterest">Pinterest</option>
+          <option value="web">Web</option>
+          <option value="propia">Foto propia</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="f-url">Enlace original</label>
+        <input type="url" id="f-url" placeholder="https://www.instagram.com/reel/…">
+      </div>
+
+      <div class="field">
+        <label for="f-video">Enlace al vídeo (Drive)</label>
+        <input type="url" id="f-video" placeholder="https://drive.google.com/…">
+        <div class="hint">Si es un vídeo: descárgalo, súbelo a tu carpeta de Drive y pega aquí el enlace.</div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="f-price">Precio estimado</label>
+          <input type="text" id="f-price" placeholder="~1200€">
+        </div>
+        <div class="field">
+          <label for="f-shop">Tienda / marca</label>
+          <input type="text" id="f-shop" placeholder="Kave Home">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-producturl">Enlace a la tienda / producto</label>
+        <input type="url" id="f-producturl" placeholder="https://…">
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn" data-action="add-cancel">Cancelar</button>
+        <button type="submit" class="btn btn-primary">Guardar idea</button>
+      </div>
+    </form>
+
+    <div class="add-success" id="add-success">
+      <div class="save-steps" id="save-steps"></div>
+      <div class="form-actions">
+        <button class="btn" id="dl-image" data-action="dl-image"><i data-lucide="download"></i> Descargar imagen</button>
+        <button class="btn" data-action="dl-json"><i data-lucide="download"></i> Descargar ideas.json</button>
+        <button class="btn" data-action="add-another"><i data-lucide="plus"></i> Añadir otra</button>
+        <button class="btn btn-primary" data-action="close-modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ MODAL · BRIEF PARA IA / DECORADORA ══════════════════ -->
+<div class="overlay" id="brief-overlay" data-action="close-overlay">
+  <div class="sheet sheet-brief sheet-pad">
+    <button class="sheet-close" data-action="close-modal" aria-label="Cerrar">
+      <i data-lucide="x"></i>
+    </button>
+    <div class="sheet-kicker">Resumen para compartir</div>
+    <h2 class="sheet-title">Brief para IA / decoradora</h2>
+    <div id="brief-body"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
