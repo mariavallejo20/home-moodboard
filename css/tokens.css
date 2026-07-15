@@ -1,0 +1,51 @@
+/* ============================================================
+   DESIGN TOKENS — fuente única de verdad.
+   Sistema "ficha de proyecto / muestrario de obra":
+   neutros de yeso + tinta, acento verde pino, datos en mono.
+   ============================================================ */
+:root {
+  /* ── Superficies / neutros ──────────────────────────────── */
+  --plaster:     #efebe4;   /* fondo (yeso cálido, algo más gris que el crema) */
+  --paper:       #fbf9f5;   /* tarjetas y paneles */
+  --paper-2:     #f4f0e9;   /* superficie alterna */
+  --ink:         #201e1b;   /* texto principal */
+  --graphite:    #6e685f;   /* texto secundario */
+  --line:        #e4ddd2;   /* hairlines */
+  --line-strong: #d6cdbf;
+
+  /* ── Acentos ────────────────────────────────────────────── */
+  --pine:        #33564b;   /* acción principal / activo */
+  --pine-deep:   #264036;
+  --pine-soft:   #e3ece7;
+  --clay:        #b4623f;   /* micro-acento (favorito) */
+
+  /* ── Estados de una idea ────────────────────────────────── */
+  --st-love-bg:     #f6e6df;  --st-love-fg:     #9c4529;
+  --st-consider-bg: #f2ead4;  --st-consider-fg: #856713;
+  --st-bought-bg:   #e0ebdf;  --st-bought-fg:   #3b6a3d;
+  --st-discard-bg:  #eae6df;  --st-discard-fg:  #857e74;
+
+  /* ── Tipografía ─────────────────────────────────────────── */
+  --font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-body:    system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono:    'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* ── Radios ─────────────────────────────────────────────── */
+  --r-sm:   6px;
+  --r-md:   10px;
+  --r-lg:   14px;
+  --r-xl:   20px;
+  --r-full: 999px;
+
+  /* ── Sombras ────────────────────────────────────────────── */
+  --sh-card: 0 1px 2px rgba(32,30,27,.05), 0 8px 22px -12px rgba(32,30,27,.22);
+  --sh-lift: 0 2px 4px rgba(32,30,27,.06), 0 18px 40px -16px rgba(32,30,27,.30);
+  --sh-pop:  0 24px 70px -14px rgba(32,30,27,.42);
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --sidebar-w: 274px;
+  --board-max: 1440px;
+
+  --safe-top:    env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}

@@ -1,0 +1,251 @@
+/* ============================================================
+   MODALES — overlay compartido, detalle de idea (lightbox),
+             formulario de añadir, brief para IA/decoradora,
+             estilos de impresión.
+   ============================================================ */
+
+/* ── Overlay base ────────────────────────────────────────── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(32,30,27,.5);
+  backdrop-filter: blur(3px);
+  padding: 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+
+.sheet {
+  background: var(--paper);
+  border-radius: var(--r-xl);
+  width: 100%;
+  max-width: 560px;
+  margin: auto;
+  box-shadow: var(--sh-pop);
+  animation: pop 0.22s ease;
+  position: relative;
+}
+@keyframes pop { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+.sheet-close {
+  position: absolute;
+  top: 12px; right: 12px;
+  z-index: 2;
+  width: 34px; height: 34px;
+  border-radius: var(--r-full);
+  background: rgba(251,249,245,.9);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink);
+}
+.sheet-close:hover { background: var(--paper-2); }
+.sheet-close svg { width: 18px; height: 18px; }
+
+/* ── Detalle de idea (lightbox) ──────────────────────────── */
+.sheet-detail { max-width: 880px; overflow: hidden; }
+
+.detail-grid { display: grid; grid-template-columns: 1.15fr 1fr; }
+
+.detail-media {
+  position: relative;
+  background-image: var(--grad, linear-gradient(145deg,#ece9e3,#ddd6c9));
+  min-height: 240px;
+  display: flex; align-items: center; justify-content: center;
+}
+.detail-media img { width: 100%; height: 100%; object-fit: cover; }
+.detail-ico {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px; height: 64px;
+  color: rgba(32, 30, 27, .26);
+  stroke-width: 1.75;
+}
+
+.detail-info { padding: 2rem 1.75rem 1.75rem; }
+
+.detail-code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pine);
+}
+.detail-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  margin: 0.3rem 0 0.75rem;
+}
+.detail-notes {
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.detail-rows { display: flex; flex-direction: column; gap: 0; margin-bottom: 1.1rem; }
+.detail-row {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+.detail-row .k {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  min-width: 84px;
+  padding-top: 2px;
+}
+.detail-row .v { color: var(--ink); flex: 1; }
+
+.detail-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.detail-draft-note {
+  margin-top: 1rem;
+  font-size: 12px;
+  color: var(--clay);
+  background: #f7ece6;
+  border: 1px solid rgba(180,98,63,.25);
+  border-radius: var(--r-md);
+  padding: 0.6rem 0.75rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .detail-grid { grid-template-columns: 1fr; }
+  .detail-media { min-height: 200px; max-height: 46vh; }
+  .detail-info { padding: 1.5rem 1.25rem; }
+}
+
+/* ── Formulario / brief: cabecera común ──────────────────── */
+.sheet-pad { padding: 1.75rem 1.5rem 1.5rem; }
+
+.sheet-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pine);
+}
+.sheet-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  margin: 0.25rem 0 1.25rem;
+}
+
+/* ── Formulario de añadir ────────────────────────────────── */
+.field { margin-bottom: 0.9rem; }
+.field label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  margin-bottom: 0.3rem;
+}
+.field input, .field textarea, .field select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  background: var(--paper-2);
+  font-size: 14px;
+}
+.field textarea { resize: vertical; min-height: 68px; line-height: 1.5; }
+.field input:focus-visible,
+.field textarea:focus-visible,
+.field select:focus-visible { outline-offset: 0; border-color: var(--pine); background: var(--paper); }
+
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+@media (max-width: 520px) { .field-row { grid-template-columns: 1fr; gap: 0; } }
+
+.hint { font-size: 11.5px; color: var(--graphite); margin-top: 0.25rem; }
+
+/* Selector de imagen */
+.dropzone {
+  border: 1.5px dashed var(--line-strong);
+  border-radius: var(--r-md);
+  padding: 1rem;
+  text-align: center;
+  background: var(--paper-2);
+  cursor: pointer;
+  transition: border-color 0.14s, background 0.14s;
+}
+.dropzone:hover { border-color: var(--pine); background: var(--pine-soft); }
+.dropzone input { display: none; }
+.dropzone-label { font-size: 13px; color: var(--graphite); }
+.dropzone-preview { margin-top: 0.6rem; display: none; }
+.dropzone-preview img { border-radius: var(--r-sm); max-height: 180px; margin: 0 auto; }
+
+.form-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 1.25rem;
+}
+
+/* Panel de éxito tras guardar */
+.add-success { display: none; }
+.add-success.show { display: block; }
+.add-form.hide { display: none; }
+
+.save-steps {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 0.9rem 1rem;
+  margin: 1rem 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.save-steps ol { margin: 0.4rem 0 0 1.1rem; }
+.save-steps code {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  background: var(--pine-soft);
+  padding: 1px 5px;
+  border-radius: 4px;
+  word-break: break-all;
+}
+
+/* ── Brief para IA / decoradora ──────────────────────────── */
+.sheet-brief { max-width: 680px; }
+.brief-pre {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 1rem;
+  max-height: 48vh;
+  overflow-y: auto;
+  color: var(--ink);
+}
+
+/* ── Impresión (para enseñar/enviar) ─────────────────────── */
+@media print {
+  .sidebar, .topbar, .scrim, .filters, .board-actions, .sheet-close { display: none !important; }
+  body { background: #fff; }
+  .app { display: block; }
+  .overlay { position: static; background: none; padding: 0; display: block; }
+  .overlay:not(.open) { display: none; }
+  .sheet { box-shadow: none; max-width: none; }
+  .brief-pre { max-height: none; border: none; background: none; padding: 0; }
+  .card { break-inside: avoid; box-shadow: none; border-color: #ccc; }
+}
