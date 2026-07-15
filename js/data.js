@@ -29,7 +29,15 @@ export async function loadData() {
   state.rooms = data.rooms || [];
 
   const committed = (data.ideas || []).map(i => ({ ...i, _draft: false }));
-  const drafts    = loadDrafts();
+
+  // Borradores locales que aún no están en ideas.json. Si un borrador ya se
+  // exportó y se comprometió (su id ya está en committed), se limpia del
+  // almacenamiento local para no mostrarlo duplicado.
+  const committedIds = new Set(committed.map(i => i.id));
+  const storedDrafts = loadDrafts();
+  const drafts = storedDrafts.filter(d => !committedIds.has(d.id));
+  if (drafts.length !== storedDrafts.length) saveDrafts(drafts);
+
   state._committed = committed;
   state.ideas = [...committed, ...drafts];
 
