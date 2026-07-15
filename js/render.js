@@ -21,9 +21,6 @@ const GRADS = {
 };
 const gradOf = id => GRADS[id] || 'linear-gradient(145deg,#ece9e3,#ddd6c9)';
 
-const SOURCE_SHORT = {
-  instagram: 'IG', tiktok: 'TT', pinterest: 'PIN', web: 'WEB', propia: 'FOTO',
-};
 export const sourceLabel = {
   instagram: 'Instagram', tiktok: 'TikTok', pinterest: 'Pinterest', web: 'Web', propia: 'Foto propia',
 };
@@ -101,10 +98,7 @@ function renderGallery() {
 function cardHTML(i) {
   const room = roomById(i.room) || {};
   const img = i._img || (i.media && i.media[0]);
-  const specText = [
-    state.current === 'all' ? (room.name || '') : '',
-    i.source ? (SOURCE_SHORT[i.source] || '') : '',
-  ].filter(Boolean).join(' · ');
+  const specText = state.current === 'all' ? (room.name || '') : '';
   return `
     <article class="card" data-action="open-detail" data-id="${esc(i.id)}" tabindex="0" role="button"
              aria-label="${esc(i.title || 'Idea')}">
