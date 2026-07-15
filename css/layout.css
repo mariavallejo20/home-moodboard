@@ -209,7 +209,7 @@
 
   .sidebar .brand { display: none; }   /* el título va en la barra superior */
   .sidebar-handle { display: block; }
-  .sidebar-foot   { margin-top: 0.5rem; }
+  .sidebar-foot   { display: none; }   /* Brief/Exportar solo en escritorio */
 
   .nav-pill { display: inline-flex; }
 
